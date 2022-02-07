@@ -1,4 +1,4 @@
-package Homework_06022022;
+package Homework_20220206;
 
 public class Task08 {
     public static void main(String[] args) {
