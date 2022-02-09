@@ -5,14 +5,18 @@ public class Person {
     int age;
     String address;
 
-    public Person() {
+    static int count;
 
+    public Person() {
+        count++;
     }
 
     public Person(String name, int age, String address) {
         this.name = name;
         this.age = age;
         this.address = address;
+
+        count++;
     }
 
     public void printAllInfo() {

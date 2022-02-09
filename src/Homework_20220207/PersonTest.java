@@ -13,5 +13,7 @@ public class PersonTest {
         Person woman = new Person("Jessica", 25, "1122 East Garfield Avenue, Glendale, California 91205, USA");
 
         woman.printAllInfo();
+
+        System.out.println(Person.count);
     }
 }
