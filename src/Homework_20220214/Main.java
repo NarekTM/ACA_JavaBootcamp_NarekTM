@@ -296,7 +296,7 @@ public class Main {
     public static int necessaryYearsForContribution(int deposit, int percent, int neededDollars) {
         int years = 0;
         while (deposit < neededDollars) {
-            deposit *= 1.1;
+            deposit *= percent / 100 + 1;
             years++;
         }
         return years;
@@ -356,6 +356,7 @@ public class Main {
      * Task 17. Write a Java Program to Compute the Sum of Digits in a given Integer.
      */
     public static int sumOfDigitsOfNumber(int num) {
+        num = Math.abs(num);
         int sum = 0;
         while (num > 0) {
             sum += num % 10;
