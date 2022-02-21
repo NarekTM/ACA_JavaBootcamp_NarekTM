@@ -7,60 +7,60 @@ public class Main {
     static Scanner scan = new Scanner(System.in);
 
     public static void main(String[] args) {
-        //Task 01
-        System.out.print("Input size for matrix: ");
-        int n = scan.nextInt();
-        matrixWithDiag(n);
+//        //Task 01
+//        System.out.print("Input size for matrix: ");
+//        int n = scan.nextInt();
+//        matrixWithDiag(n);
 
-        //Task 02
-        System.out.print("Input size for matrix: ");
-        int h = scan.nextInt();
-        matrixFromZeroOneTwo(h);
-
-        //Task 03
-        System.out.print("Input size for matrix: ");
-        int m = scan.nextInt();
-        System.out.println(isArraySymmetrical(m));
-
-        //Task 04
-        System.out.print("Input number of athletes: ");
-        int rows = scan.nextInt();
-        System.out.print("Input number of throws: ");
-        int columns = scan.nextInt();
-        hammerThrowingAthletes1(rows, columns);
-
-        //Task 05
-        System.out.print("Input number of athletes: ");
-        int rowsN = scan.nextInt();
-        System.out.print("Input number of throws: ");
-        int columnsN = scan.nextInt();
-        hammerThrowingAthletes2(rowsN, columnsN);
-
-        //Task 06
-        System.out.print("Input number of athletes: ");
-        int rowsM = scan.nextInt();
-        System.out.print("Input number of throws: ");
-        int columnsM = scan.nextInt();
-        hammerThrowingAthletes3(rowsM, columnsM);
-
-        //Task 07 (08)
-        System.out.print("Input number of rows: ");
-        int r = scan.nextInt();
-        System.out.print("Input number of columns: ");
-        int c = scan.nextInt();
-        addSameSizeMatrices(r, c);
-
+//        //Task 02
+//        System.out.print("Input size for matrix: ");
+//        int h = scan.nextInt();
+//        matrixFromZeroOneTwo(h);
+//
+//        //Task 03
+//        System.out.print("Input size for matrix: ");
+//        int m = scan.nextInt();
+//        System.out.println(isArraySymmetrical(m));
+//
+//        //Task 04
+//        System.out.print("Input number of athletes: ");
+//        int rows = scan.nextInt();
+//        System.out.print("Input number of throws: ");
+//        int columns = scan.nextInt();
+//        hammerThrowingAthletes1(rows, columns);
+//
+//        //Task 05
+//        System.out.print("Input number of athletes: ");
+//        int rowsN = scan.nextInt();
+//        System.out.print("Input number of throws: ");
+//        int columnsN = scan.nextInt();
+//        hammerThrowingAthletes2(rowsN, columnsN);
+//
+//        //Task 06
+//        System.out.print("Input number of athletes: ");
+//        int rowsM = scan.nextInt();
+//        System.out.print("Input number of throws: ");
+//        int columnsM = scan.nextInt();
+//        hammerThrowingAthletes3(rowsM, columnsM);
+//
+//        //Task 07 (08)
+//        System.out.print("Input number of rows: ");
+//        int r = scan.nextInt();
+//        System.out.print("Input number of columns: ");
+//        int c = scan.nextInt();
+//        addSameSizeMatrices(r, c);
+//
         //Task 08 (09)
         System.out.print("Input number of rows: ");
         int sz = scan.nextInt();
         fillArrayInSpiralWithOnes(sz);
         System.out.println();
-
-        //Task 09 (10)
-        System.out.print("Input number of rows: ");
-        int sizeP = scan.nextInt();
-        fillArrayInSpiralWithNumbers(sizeP);
-        System.out.println();
+//
+//        //Task 09 (10)
+//        System.out.print("Input number of rows: ");
+//        int sizeP = scan.nextInt();
+//        fillArrayInSpiralWithNumbers(sizeP);
+//        System.out.println();
     }
 
 
@@ -74,13 +74,16 @@ public class Main {
         int[][] array = new int[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (j != (n - i - 1)) {
-                    array[i][j] = 0;
-                } else {
+                if (j == (n - i - 1)) {
                     array[i][j] = 1;
                 }
             }
         }
+        /*
+        for (int i = 0; i < n; i++) {
+            array[i][n - i - 1] = 1;
+        }
+         */
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 System.out.print(array[i][j] + " ");
@@ -100,11 +103,9 @@ public class Main {
         int[][] array = new int[h][h];
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < h; j++) {
-                if (j < (h - i - 1)) {
-                    array[i][j] = 0;
-                } else if (j == (h - i - 1)) {
+                if (j == (h - i - 1)) {
                     array[i][j] = 1;
-                } else {
+                } else if (j > (h - i - 1)) {
                     array[i][j] = 2;
                 }
             }
@@ -136,6 +137,26 @@ public class Main {
                 }
             }
         }
+
+        /*
+        for (int i = 0; i < m; i++) {
+            for (int j = i + 1; j < m - 1; j++) {
+                if (array[i][j] != array[j][i]) {
+                    return "No!";
+                }
+            }
+        }
+         */
+
+        //for checking diagonal is symmetrical or not
+        /*
+        for (int i = 0; i < m / 2; i++) {
+            if (array[i][i] != array[m-i-1][m-i-1]) {
+                return "No!";
+            }
+        }
+         */
+
         return "Yes!";
     }
 
@@ -158,25 +179,25 @@ public class Main {
      */
     public static void hammerThrowingAthletes1(int rows, int columns) {
         int[][] array = new int[rows][columns];
-        int max = 0;
-        int maxIndex = 0;
-        int temp = 0;
+        int maxSum = 0;
+        int maxLineIndex = 0;
+        int tempSum = 0;
         System.out.println("Input throws results:");
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 array[i][j] = scan.nextInt();
                 if (i == 0) {
-                    max += array[i][j];
+                    maxSum += array[i][j];
                 } else {
-                    temp += array[i][j];
+                    tempSum += array[i][j];
                 }
             }
-            if (temp > max) {
-                max = temp;
-                maxIndex = i;
+            if (tempSum > maxSum) {
+                maxSum = tempSum;
+                maxLineIndex = i;
             }
         }
-        System.out.println("Max is: " + max + ", line is: " + maxIndex);
+        System.out.println("Max is: " + maxSum + ", line is: " + maxLineIndex);
     }
 
     /**
@@ -323,9 +344,12 @@ public class Main {
      * 1 1 1 1 1 1 1
      */
     public static void fillArrayInSpiralWithOnes(int sz) {
+        if (sz < 3) {
+            return;
+        }
         int[][] array = new int[sz][sz];
         int helper = 0;
-        for (int i = 0; i < sz / 3; i++) {
+        for (int i = 0; i < sz / 3 + 1; i++) {
             for (int j = i + i / 2; j < sz - helper; j++) {
                 array[i * 2][j] = 1;
             }
@@ -365,26 +389,22 @@ public class Main {
         int count = 0;
         for (int i = 0; i <= length / 2; i++) {
             for (int j = i; j <= length - i; j++) {
-                array[i][j] = num;
-                num++;
+                array[i][j] = num++;
             }
             for (int j = 1; j <= length - i - count; j++) {
-                array[j + count][length - i] = num;
-                num++;
+                array[j + count][length - i] = num++;
             }
             for (int j = 1; j <= length - count * 2; j++) {
-                array[length - i][length - j - count] = num;
-                num++;
+                array[length - i][length - j - count] = num++;
             }
             for (int j = 1; j < length - count * 2; j++) {
-                array[length - j - count][i] = num;
-                num++;
+                array[length - j - count][i] = num++;
             }
             count++;
         }
         for (int[] elemArr : array) {
             for (int elem : elemArr) {
-                System.out.print(elem + "\t");
+                System.out.printf("%7d", elem);
             }
             System.out.println();
         }
