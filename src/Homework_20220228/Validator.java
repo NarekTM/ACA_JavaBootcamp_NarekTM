@@ -25,19 +25,22 @@ public class Validator {
             return false;
         }
         return str.length() == 8 && "AN".equals(str.substring(0, 2)) &&
-                Integer.parseInt(str.substring(2)) >= 0;
+                isStringConsistOfPosNumbers(str.substring(2));
     }
 
     public static boolean isPhoneNumberValid(String str) {
         if (str == null) {
             return false;
         }
-        return str.length() == 8 && isStringConsistOfNumbers(str);
+        return str.length() == 8 && isStringConsistOfPosNumbers(str);
     }
 
-    public static boolean isStringConsistOfNumbers(String str) {
+    public static boolean isStringConsistOfPosNumbers(String str) {
+        if (str == null) {
+            return false;
+        }
         for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) < '0' && str.charAt(i) > '9') {
+            if (str.charAt(i) < '0' || str.charAt(i) > '9') {
                 return false;
             }
         }
