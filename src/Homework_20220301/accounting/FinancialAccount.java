@@ -1,7 +1,7 @@
 package Homework_20220301.accounting;
 
 public class FinancialAccount extends TaxAccounting {
-    private int countOfEmployees;
+    protected int countOfEmployees;
     private String departmentName;
 
     public FinancialAccount() {

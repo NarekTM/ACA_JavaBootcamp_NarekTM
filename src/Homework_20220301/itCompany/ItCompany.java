@@ -1,8 +1,8 @@
 package Homework_20220301.itCompany;
 
 public class ItCompany {
-    private int countOfEmployers;
-    private String companyName;
+    protected int countOfEmployers;
+    protected String companyName;
 
     public ItCompany() {
     }

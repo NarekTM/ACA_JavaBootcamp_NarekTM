@@ -1,8 +1,8 @@
 package Homework_20220301.accounting;
 
 public class Accounting {
-    private int countOfEmployees;
-    private String departmentName;
+    protected int countOfEmployees;
+    protected String departmentName;
 
     public Accounting() {
     }

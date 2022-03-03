@@ -1,7 +1,7 @@
 package Homework_20220301.itCompany;
 
 public class Accounting extends ItCompany {
-    private String departmentName;
+    protected String departmentName;
 
     public Accounting() {
     }
