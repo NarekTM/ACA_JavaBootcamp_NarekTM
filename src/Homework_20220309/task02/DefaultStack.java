@@ -1,9 +1,9 @@
 package Homework_20220309.task02;
 
 public class DefaultStack implements Stack {
-    private int[] nums;
+    private final int[] nums;
     private int index;
-    private final int MAX_SIZE = 5;
+    private static final int MAX_SIZE = 5;
 
     public DefaultStack() {
         nums = new int[MAX_SIZE];

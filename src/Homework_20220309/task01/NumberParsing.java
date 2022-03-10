@@ -6,9 +6,10 @@ public class NumberParsing {
     public static int parseNumber() {
         Scanner scanner = new Scanner(System.in);
         int num;
+        String str;
         while (true) {
             System.out.print("Enter number: ");
-            String str = scanner.nextLine();
+            str = scanner.nextLine();
             try {
                 num = Integer.parseInt(str);
                 break;
