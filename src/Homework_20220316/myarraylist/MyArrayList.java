@@ -1,6 +1,5 @@
 package Homework_20220316.myarraylist;
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 public class MyArrayList implements MyOtherList {
@@ -62,7 +61,7 @@ public class MyArrayList implements MyOtherList {
     @Override
     public void add(int val) {
         if (!(size <= DEFAULT_CAPACITY)) {
-            doCopyArray();
+            grow();
         }
         elements[size] = val;
         size++;
@@ -71,13 +70,13 @@ public class MyArrayList implements MyOtherList {
     @Override
     public void add(int index, int val) {
         checkIndex(index, 0);
-        if (!(index == 0 && size == 0) && !(index == size) && size <= currentCapacity) {
+        if (!(index == size) && size <= currentCapacity) {
             for (int i = size; i > index; i--) {
                 elements[i] = elements[i - 1];
             }
         }
         if (size == currentCapacity) {
-            doCopyArray();
+            grow();
         }
         elements[index] = val;
         size++;
@@ -151,7 +150,7 @@ public class MyArrayList implements MyOtherList {
         //System.arraycopy(array, 0, targetArray, 0, array.length);
     }
 
-    private void doCopyArray() {
+    private void grow() {
         Integer[] tempElements = new Integer[size];
         copyArray(elements, tempElements);
         currentCapacity = size + DEFAULT_CAPACITY + DEFAULT_CAPACITY >> 1;
