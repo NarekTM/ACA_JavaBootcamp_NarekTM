@@ -5,55 +5,72 @@ import javax.xml.stream.events.Characters;
 public class Main {
     public static void main(String[] args) {
 
-//        //Task 01.1
-//        int[] array = {1, 2, 3, 4, 5, 6};
-//        System.out.println(sumOfArray(array));
-//
-//        //Task 01.2
-//        System.out.println(factorial(6));
-//
-//        //Task 02
-//        System.out.println(fib(7));
-//
-//        //Task 03
-//        System.out.println(numberOfBlocks(5));
-//
-//        //Task 04
-//        System.out.println(sumOfNumbersDigits(102030));
-//
-//        //Task 05
-//        System.out.println(occurrencesOfSeven(717100727));
-//
-//        //Task 06
-//        System.out.println(countOfCharX("xxhixx"));
-//        System.out.println(countOfCharX("xhixhix"));
-//        System.out.println(countOfCharX("helloX"));
-//
-//        //Task 07
-//        System.out.println(stringWithoutCharX("helloX"));
-//
-//        //Task 08
-//        System.out.println(reverseString("hello"));
-//
-//        //Task 09
-//        System.out.println(endX("xxre"));
-//        System.out.println(endX("xxhixx"));
-//
-//        //Task 10
-//        System.out.println(stringClean("yyzzza"));
-//        System.out.println(stringClean("abbbcdd"));
-//
-//        //Task 11
-//        System.out.println(isPrime(91));
-//
-//        //Task 12
-//        System.out.println(largestDigit("43921512"));
-//
-//        //Task 13
-//        System.out.println(countOfDigits("1"));
-//
-//        //Task 14
-//        System.out.println(addingAsterisk("abcd"));
+        //Task 01.1
+        int[] array = {1, 2, 3, 4, 5, 6};
+        System.out.println(sumOfArray(array));
+
+        //Task 01.2
+        System.out.println(factorial(6));
+
+        //Task 02
+        System.out.println(fib(7));
+
+        //Task 03
+        System.out.println(numberOfBlocks(5));
+
+        //Task 04
+        System.out.println(sumOfNumbersDigits(102030));
+
+        //Task 05
+        System.out.println(occurrencesOfSeven(717100727));
+
+        //Task 06
+        System.out.println(countOfCharX("xxhixx"));
+        System.out.println(countOfCharX("xhixhix"));
+        System.out.println(countOfCharX("helloX"));
+
+        //Task 07
+        System.out.println(stringWithoutCharX("helloX"));
+
+        //Task 08
+        System.out.println(reverseString("hello"));
+
+        //Task 09
+        System.out.println(endX("xxre"));
+        System.out.println(endX("xxhixx"));
+
+        //Task 10
+        System.out.println(stringClean("yyzzza"));
+        System.out.println(stringClean("abbbcdd"));
+
+        //Task 11
+        System.out.println(isPrime(91));
+
+        //Task 12
+        System.out.println(largestDigit("43921512"));
+
+        //Task 13
+        System.out.println(countOfDigits("1"));
+
+        //Task 14
+        System.out.println(addingAsterisk("abcd"));
+
+        //Task 15
+        System.out.println("Even length: " + addingParentheses("abcd"));
+        System.out.println("Odd length: " + addingParentheses("abcde"));
+
+        //Task 16
+        System.out.println(addingMirroredLine("(abc (def (g"));
+
+        //Task 17
+        System.out.println("aa: " + shortenIdenticalSymmetricalLetters("aa") + " ()");
+        System.out.println("abcba: " + shortenIdenticalSymmetricalLetters("abcba") + " (c)");
+        System.out.println("abcda: " + shortenIdenticalSymmetricalLetters("abcda") + " (bcd)");
+        System.out.println("abddba: " + shortenIdenticalSymmetricalLetters("abddba") + " ()");
+        System.out.println("zabba: " + shortenIdenticalSymmetricalLetters("zabba") + " (zabba)");
+        System.out.println("abacdcaba: " + shortenIdenticalSymmetricalLetters("abacdcaba") + " (d)");
+        System.out.println("abacdczba: " + shortenIdenticalSymmetricalLetters("abacdczba") + " (adz)");
+        System.out.println("abacdcabx: " + shortenIdenticalSymmetricalLetters("abacdcabx") + " (adx)");
     }
 
     /**
@@ -148,7 +165,7 @@ public class Main {
      */
     public static int countOfCharX(String str) {
         if (str == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
         if (str.equals("")) {
             return 0;
@@ -165,7 +182,7 @@ public class Main {
      */
     public static String stringWithoutCharX(String str) {
         if (str == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
         if (str.equals("")) {
             return "";
@@ -182,7 +199,7 @@ public class Main {
      */
     public static String reverseString(String str) {
         if (str == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
         if (str.equals("")) {
             return "";
@@ -199,7 +216,7 @@ public class Main {
      */
     public static String endX(String str) {
         if (str == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
         if (str.length() == 0) {
             return "";
@@ -220,7 +237,7 @@ public class Main {
      */
     public static String stringClean(String str) {
         if (str == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
         if (str.equals("")) {
             return "";
@@ -256,7 +273,7 @@ public class Main {
      */
     public static String largestDigit(String str) {
         if (str == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
         if (str.length() == 0) {
             return "";
@@ -278,7 +295,7 @@ public class Main {
      */
     public static int countOfDigits(String str) {
         if (str == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
         if (str.length() == 0) {
             return 0;
@@ -308,7 +325,7 @@ public class Main {
      */
     public static String addingAsterisk(String str) {
         if (str == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
         if (str.length() == 0) {
             return "";
@@ -331,8 +348,114 @@ public class Main {
      * (L(I(t(B(e(o(F(L(c(S(G(B(O(F(Q(x(M(H(o(I)u)D)D)W)c)q)c)V)g)k)c)R)o)A)e)o)c)X)O)
      */
     public static String addingParentheses(String str) {
-        return "";
+        if (str == null) {
+            throw new IllegalArgumentException();
+        }
+        int length = str.length();
+        if (length == 0) {
+            return "";
+        }
+        String result = str.substring(0, 1);
+        if (length == 1) {
+            return "(" + result + ")";
+        }
+        String str1;
+        String str2;
+        if (length % 2 == 0) {
+            str1 = addingOpenParentheses(str.substring(0, length / 2), length / 2 + 1);
+            str2 = addingCloseParentheses(str.substring(length / 2), length / 2);
+        } else {
+            str1 = addingOpenParentheses(str.substring(0, length / 2 + 1), length / 2 + 1);
+            str2 = addingCloseParentheses(str.substring(length / 2), length / 2 + 1).substring(1);
+        }
+        return str1 + str2;
     }
+
+    public static String addingOpenParentheses(String str, int n) {
+        if (str == null) {
+            throw new IllegalArgumentException();
+        }
+        if (str.length() == 0) {
+            return "";
+        }
+        String result = str.substring(0, 1);
+        if (n != 0) {
+            result = "(" + result;
+        } else {
+            return result;
+        }
+        int index = 0;
+        return result + addingOpenParentheses(str.substring(index + 1), n - 1);
+    }
+
+    public static String addingCloseParentheses(String str, int n) {
+        if (str == null) {
+            throw new IllegalArgumentException();
+        }
+        if (str.length() == 0) {
+            return "";
+        }
+        String result = str.substring(0, 1);
+        if (n > 0) {
+            result += ")";
+        }
+        int index = 0;
+        return result + addingCloseParentheses(str.substring(index + 1), n - 1);
+    }
+
+    /**
+     * Task 16. Given a string containing only English letters (uppercase and lowercase) and opening brackets.
+     * Form a new line by adding a "mirrored" line with closing brackets to the right.
+     * Example:
+     * "(abc (def (g " --> "(abc (def (gg) fed) cba)"
+     */
+    public static String addingMirroredLine(String str) {
+        if (str == null) {
+            throw new IllegalArgumentException();
+        }
+        if (str.length() == 0) {
+            return "";
+        }
+        return str + reverseStringWithCloseParentheses(str);
+    }
+
+    public static String reverseStringWithCloseParentheses(String str) {
+        if (str == null) {
+            throw new IllegalArgumentException();
+        }
+        if (str.equals("")) {
+            return "";
+        }
+        if (str.charAt(str.length() - 1) == '(') {
+            return ")" + reverseStringWithCloseParentheses(str.substring(0, str.length() - 1));
+        }
+        return str.substring(str.length() - 1) + reverseStringWithCloseParentheses(str.substring(0, str.length() - 1));
+    }
+
+    /**
+     * Task 17. Given a string containing only small English letters. Form a new line by "cutting"
+     * identical letters located at symmetrical places (that is, if there are 2 identical letters at the same
+     * distance from the center of the line, then they must be removed from the line). If the length of the
+     * string is odd, then the middle letter does not need to be shortened.
+     */
+    public static String shortenIdenticalSymmetricalLetters(String str) {
+        if (str == null) {
+            throw new IllegalArgumentException();
+        }
+        if (str.length() == 0) {
+            return "";
+        }
+        if (str.length() == 1) {
+            return str;
+        }
+        if (str.charAt(0) == str.charAt(str.length() - 1)) {
+            return shortenIdenticalSymmetricalLetters(str.substring(1, str.length() - 1));
+        }
+        char first = str.charAt(0);
+        char second = str.charAt(str.length() - 1);
+        return first + shortenIdenticalSymmetricalLetters(str.substring(1, str.length() - 1)) + second;
+    }
+
 }
 
 
