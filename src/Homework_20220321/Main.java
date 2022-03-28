@@ -1,6 +1,5 @@
 package Homework_20220321;
 
-import javax.imageio.metadata.IIOMetadataFormatImpl;
 import java.util.*;
 
 public class Main {
@@ -28,12 +27,30 @@ public class Main {
 //        String str5 = "abcdaefjh";
 //        String str6 = "abada";
 //        String str7 = "abbaccca";
-//        System.out.println(lengthOfLongestUniquesSubstring(str6));
-
+//        String str8 = "ababab";
+//        String str9 = "abcdaefajh";
+//        System.out.printf("%-9s\t-\tlongest substring without repeating characters' length: \t%s\t(should be 3)\n",
+//                str3, lengthOfLongestUniquesSubstring(str3));
+//        System.out.printf("%-9s\t-\tlongest substring without repeating characters' length: \t%s\t(should be 2)\n",
+//                str4, lengthOfLongestUniquesSubstring(str4));
+//        System.out.printf("%-9s\t-\tlongest substring without repeating characters' length: \t%s\t(should be 8)\n",
+//                str5, lengthOfLongestUniquesSubstring(str5));
+//        System.out.printf("%-9s\t-\tlongest substring without repeating characters' length: \t%s\t(should be 3)\n",
+//                str6, lengthOfLongestUniquesSubstring(str6));
+//        System.out.printf("%-9s\t-\tlongest substring without repeating characters' length: \t%s\t(should be 3)\n",
+//                str7, lengthOfLongestUniquesSubstring(str7));
+//        System.out.printf("%-9s\t-\tlongest substring without repeating characters' length: \t%s\t(should be 2)\n",
+//                str8, lengthOfLongestUniquesSubstring(str8));
+//        System.out.printf("%-9s\t-\tlongest substring without repeating characters' length: \t%s\t(should be 6)\n",
+//                str9, lengthOfLongestUniquesSubstring(str9));
     }
 
+    /**
+     * Task 01. Write a method which will check if given array of
+     * integers contains duplicate element.
+     */
     public static boolean containsDuplicateElement(Integer[] array) {
-        Set<Integer> arraySet = new HashSet<Integer>();
+        Set<Integer> arraySet = new HashSet<>();
 
         for (Integer integer : array) {
             if (!arraySet.add(integer)) {
@@ -55,24 +72,28 @@ public class Main {
          */
     }
 
+    /**
+     * Task 02. Write a method which prints elements that occurred only once in the array.
+     */
     public static void printUniqueElements(Integer[] array) {
         if (array.length == 1) {
             System.out.println(array[0]);
             return;
         }
-        Arrays.sort(array);
-        Set<Integer> arraySet = new HashSet<Integer>();
-        for (int i = 0; i < array.length - 1; i++) {
-            if (!arraySet.contains(array[i]) && array[i] != array[i + 1]) {
-                System.out.println(array[i]);
+        Set<Integer> arraySet = new HashSet<>();
+        for (Integer integer : array) {
+            if (!arraySet.add(integer)) {
+                arraySet.remove(integer);
             }
-            arraySet.add(array[i]);
         }
-        if (!arraySet.contains(array[array.length - 1])) {
-            System.out.println(array[array.length - 1]);
+        for (Integer integer : arraySet) {
+            System.out.print(integer + " ");
         }
     }
 
+    /**
+     * Task 03. Write a method that counts duplicate characters from a given string.
+     */
     public static int countOfDuplicateChars(String str) {
         Map<Character, Integer> strMap = new HashMap<>();
         int strLength = str.length();
@@ -90,6 +111,9 @@ public class Main {
         return count;
     }
 
+    /**
+     * Task 04. Write a method that return s the first non-repeated character from a given string.
+     */
     public static char firstUniqueChar(String str) {
         Map<Character, Integer> strMap = new HashMap<>();
         int strLength = str.length();
@@ -106,52 +130,11 @@ public class Main {
         return ' ';
     }
 
-//    public static int lengthOfLongestUniquesSubstring(String str) {
-//        Map<Character, Integer> strMap = new HashMap<>();
-//        int strLength = str.length();
-//        for (int i = 0; i < strLength; i++) {
-//            strMap.put(str.charAt(i), 1);
-//        }
-//
-//        Map<Integer, Character> strMap2 = new HashMap<>();
-//        //int strLength = str.length();
-//        for (int i = 0; i < strLength; i++) {
-//            strMap2.put(i, str.charAt(i));
-//        }
-//
-//        int arraySize = (int) (strMap2.size() * (double)(strMap2.size() / 2) + (double)(strMap2.size() / 2));
-//        String[] array = new String[arraySize];
-//        return 0;
-//    }
-
-//    public static int lengthOfLongestUniquesSubstring2(String str) {
-//        Map<String, Integer> strMap = new HashMap<>();
-//        int strLength = str.length();
-//        for (int i = 0; i < strLength; i++) {
-//            for (int j = 0; j < strLength - i; j++) {
-//                strMap.put(str.substring(i, strLength - j), str.substring(i, strLength - j).length());
-//            }
-//        }
-//        String longest = str.substring(0, 1);
-//        for (String sub : strMap.keySet()) {
-//            if (!containsDuplicateElementString(sub) && sub.length() > longest.length()) {
-//                longest = sub;
-//            }
-//        }
-//        return longest.length();
-//    }
-//
-//    public static boolean containsDuplicateElementString(String str) {
-//        Set<Character> arraySet = new HashSet<Character>();
-//
-//        for (int i = 0; i < str.length(); i++) {
-//            if (!arraySet.add(str.charAt(i))) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-
+    /**
+     * Task 05. Write a method which will return the length of the
+     * longest substring without repeating characters.
+     * “abba” – 2, “abcdaefjh” – 8
+     */
 }
 
 
