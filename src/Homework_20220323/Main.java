@@ -1,76 +1,77 @@
 package Homework_20220323;
 
-import javax.xml.stream.events.Characters;
-
 public class Main {
     public static void main(String[] args) {
 
-        //Task 01.1
-        int[] array = {1, 2, 3, 4, 5, 6};
-        System.out.println(sumOfArray(array));
-
-        //Task 01.2
-        System.out.println(factorial(6));
-
-        //Task 02
-        System.out.println(fib(7));
-
-        //Task 03
-        System.out.println(numberOfBlocks(5));
-
-        //Task 04
-        System.out.println(sumOfNumbersDigits(102030));
-
-        //Task 05
-        System.out.println(occurrencesOfSeven(717100727));
-
-        //Task 06
-        System.out.println(countOfCharX("xxhixx"));
-        System.out.println(countOfCharX("xhixhix"));
-        System.out.println(countOfCharX("helloX"));
-
-        //Task 07
-        System.out.println(stringWithoutCharX("helloX"));
-
-        //Task 08
-        System.out.println(reverseString("hello"));
-
-        //Task 09
-        System.out.println(endX("xxre"));
-        System.out.println(endX("xxhixx"));
-
+//        //Task 01.1
+//        int[] array = {1, 2, 3, 4, 5, 6};
+//        System.out.println(sumOfArray(array));
+//
+//        //Task 01.2
+//        System.out.println(factorial(6));
+//
+//        //Task 02
+//        System.out.println(fib(7));
+//
+//        //Task 03
+//        System.out.println(numberOfBlocks(5));
+//
+//        //Task 04
+//        System.out.println(sumOfNumbersDigits(102030));
+//
+//        //Task 05
+//        System.out.println(occurrencesOfSeven(717100727));
+//
+//        //Task 06
+//        System.out.println(countOfCharX("xxhixx"));
+//        System.out.println(countOfCharX("xhixhix"));
+//        System.out.println(countOfCharX("helloX"));
+//
+//        //Task 07
+//        System.out.println(stringWithoutCharX("helloX"));
+//
+//        //Task 08
+//        System.out.println(reverseString("hello"));
+//
+//        //Task 09
+//        System.out.println(endX("xxre"));
+//        System.out.println(endX("xxhixx"));
+//
         //Task 10
         System.out.println(stringClean("yyzzza"));
         System.out.println(stringClean("abbbcdd"));
-
-        //Task 11
-        System.out.println(isPrime(91));
-
-        //Task 12
-        System.out.println(largestDigit("43921512"));
-
-        //Task 13
-        System.out.println(countOfDigits("1"));
-
-        //Task 14
-        System.out.println(addingAsterisk("abcd"));
-
-        //Task 15
-        System.out.println("Even length: " + addingParentheses("abcd"));
-        System.out.println("Odd length: " + addingParentheses("abcde"));
-
-        //Task 16
-        System.out.println(addingMirroredLine("(abc (def (g"));
-
-        //Task 17
-        System.out.println("aa: " + shortenIdenticalSymmetricalLetters("aa") + " ()");
-        System.out.println("abcba: " + shortenIdenticalSymmetricalLetters("abcba") + " (c)");
-        System.out.println("abcda: " + shortenIdenticalSymmetricalLetters("abcda") + " (bcd)");
-        System.out.println("abddba: " + shortenIdenticalSymmetricalLetters("abddba") + " ()");
-        System.out.println("zabba: " + shortenIdenticalSymmetricalLetters("zabba") + " (zabba)");
-        System.out.println("abacdcaba: " + shortenIdenticalSymmetricalLetters("abacdcaba") + " (d)");
-        System.out.println("abacdczba: " + shortenIdenticalSymmetricalLetters("abacdczba") + " (adz)");
-        System.out.println("abacdcabx: " + shortenIdenticalSymmetricalLetters("abacdcabx") + " (adx)");
+        System.out.println(stringClean("abbcb"));
+        System.out.println(stringClean("abbccbb"));
+        System.out.println(stringClean("aaba"));
+//
+//        //Task 11
+//        System.out.println(isPrime(91));
+//
+//        //Task 12
+//        System.out.println(largestDigit("43921512"));
+//
+//        //Task 13
+//        System.out.println(countOfDigits("1"));
+//
+//        //Task 14
+//        System.out.println(addingAsterisk("abcd"));
+//
+//        //Task 15
+//        System.out.println("Even length: " + addingParentheses("abcd"));
+//        System.out.println("Odd length: " + addingParentheses("abcde"));
+//
+//        //Task 16
+//        System.out.println(addingMirroredLine("(abc (def (g"));
+//
+//        //Task 17
+//        System.out.println("aa: " + shortenIdenticalSymmetricalLetters("aa") + " ()");
+//        System.out.println("abcba: " + shortenIdenticalSymmetricalLetters("abcba") + " (c)");
+//        System.out.println("abcda: " + shortenIdenticalSymmetricalLetters("abcda") + " (bcd)");
+//        System.out.println("abddba: " + shortenIdenticalSymmetricalLetters("abddba") + " ()");
+//        System.out.println("zabba: " + shortenIdenticalSymmetricalLetters("zabba") + " (zabba)");
+//        System.out.println("abacdcaba: " + shortenIdenticalSymmetricalLetters("abacdcaba") + " (d)");
+//        System.out.println("abacdczba: " + shortenIdenticalSymmetricalLetters("abacdczba") + " (adz)");
+//        System.out.println("abacdcabx: " + shortenIdenticalSymmetricalLetters("abacdcabx") + " (adx)");
     }
 
     /**
@@ -242,30 +243,27 @@ public class Main {
         if (str.equals("")) {
             return "";
         }
-        int index = 0;
-        if (str.substring(1).contains(Character.toString(str.charAt(0)))) {
-            return stringClean(str.substring(index + 1));
+        if (str.substring(1).contains(Character.toString(str.charAt(0))) && str.charAt(0) == str.charAt(1)) {
+            return stringClean(str.substring(1));
         }
-        return str.charAt(0) + stringClean(str.substring(index + 1));
+        return str.charAt(0) + stringClean(str.substring(1));
     }
 
     /**
      * Task 11. Write a function to determine if a number is prime or not.
      */
     public static boolean isPrime(int num) {
-        return countOfDivisors(num, 1) <= 2;
+        return primeHelper(num, 2);
     }
 
-    public static int countOfDivisors(int num, int divisor) {
-        int countOfDivisors = 0;
+    public static boolean primeHelper(int num, int divisor) {
+        if (divisor > Math.sqrt(num)) {
+            return true;
+        }
         if (num % divisor == 0) {
-            countOfDivisors++;
+            return false;
         }
-        if (num == divisor) {
-            return countOfDivisors;
-        }
-        divisor++;
-        return countOfDivisors + countOfDivisors(num, divisor);
+        return primeHelper(num, divisor + 1);
     }
 
     /**
@@ -308,9 +306,7 @@ public class Main {
         if (str.length() == 1) {
             return count;
         }
-        int index = 0;
-
-        return count + countOfDigits(str.substring(index + 1));
+        return count + countOfDigits(str.substring(1));
     }
 
     public static boolean isDigit(char ch) {
@@ -335,8 +331,7 @@ public class Main {
             return result;
         }
         result += "*";
-        int index = 0;
-        return result + addingAsterisk(str.substring(index + 1));
+        return result + addingAsterisk(str.substring(1));
     }
 
     /**
@@ -384,8 +379,7 @@ public class Main {
         } else {
             return result;
         }
-        int index = 0;
-        return result + addingOpenParentheses(str.substring(index + 1), n - 1);
+        return result + addingOpenParentheses(str.substring(1), n - 1);
     }
 
     public static String addingCloseParentheses(String str, int n) {
@@ -448,14 +442,33 @@ public class Main {
         if (str.length() == 1) {
             return str;
         }
-        if (str.charAt(0) == str.charAt(str.length() - 1)) {
-            return shortenIdenticalSymmetricalLetters(str.substring(1, str.length() - 1));
-        }
         char first = str.charAt(0);
         char second = str.charAt(str.length() - 1);
+        if (first == second) {
+            return shortenIdenticalSymmetricalLetters(str.substring(1, str.length() - 1));
+        }
         return first + shortenIdenticalSymmetricalLetters(str.substring(1, str.length() - 1)) + second;
     }
 
+    /**
+     * MyTask. Given a string, return recursively a "cleaned" string where all chars are unique.
+     * Example`
+     * stringClean("yyzzza") → "yza"
+     * stringClean("abbbcdd") → "abcd"
+     * stringClean("abbccbb") → "acb"
+     */
+    public static String stringClean2(String str) {
+        if (str == null) {
+            throw new IllegalArgumentException();
+        }
+        if (str.equals("")) {
+            return "";
+        }
+        if (str.substring(1).contains(Character.toString(str.charAt(0)))) {
+            return stringClean(str.substring(1));
+        }
+        return str.charAt(0) + stringClean(str.substring(1));
+    }
 }
 
 
