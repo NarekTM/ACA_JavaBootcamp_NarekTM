@@ -1,15 +1,12 @@
 package Homework_20220401.smallapp;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class User {
-    String name;
-    String surname;
-    int age;
+    private String name;
+    private String surname;
+    private int age;
 
     public User() {
     }
@@ -20,6 +17,36 @@ public class User {
         this.age = age;
     }
 
+    public User(User user) {
+        this.name = user.name;
+        this.surname = user.surname;
+        this.age = user.age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public void saveUser(File file) throws IOException {
         FileWriter writer = new FileWriter(file, true);
 
@@ -27,19 +54,37 @@ public class User {
         writer.close();
     }
 
-    public static String getUsersFromFile(File file) throws FileNotFoundException {
+    public static List<User> getUsersFromFile(File file) throws FileNotFoundException {
+        List<User> users = new ArrayList<>();
         Scanner fileScanner = new Scanner(file);
-        StringBuilder sb = new StringBuilder();
+        User user = new User();
 
         while (fileScanner.hasNextLine()) {
-            sb.append(fileScanner.nextLine()).append('\n');
+            String line = fileScanner.nextLine();
+
+            Scanner lineScanner = new Scanner(line);
+            int helper = 0;
+            while (lineScanner.hasNext()) {
+                if (helper == 0) {
+                    user.setName(lineScanner.next());
+                    helper++;
+                } else if (helper == 1) {
+                    user.setSurname(lineScanner.next());
+                    helper++;
+                } else {
+                    user.setAge(lineScanner.nextInt());
+                    helper = 0;
+                }
+            }
+            users.add(new User(user));
+            lineScanner.close();
         }
-        return sb.toString();
+        fileScanner.close();
+        return users;
     }
 
     @Override
     public String toString() {
-        return "name = " + name + ", surname = " + surname +
-                ", age = " + age;
+        return name + " " + surname + " " + age;
     }
 }
