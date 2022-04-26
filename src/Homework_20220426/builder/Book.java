@@ -17,6 +17,15 @@ public final class Book {
         this.description = description;
     }
 
+    public Book(Book book) {
+        this.code = book.getCode();
+        this.title = book.getTitle();
+        this.genre = book.getGenre();
+        this.author = book.getAuthor();
+        this.publishingYear = book.getPublishingYear();
+        this.description = book.getDescription();
+    }
+
     public String getCode() {
         return code;
     }
